@@ -12,7 +12,7 @@ It is ideal to change any mention of `examplemod` within the codebase when creat
 The main changes from the Multiloader Template, which we have forked are:
 - Uses Kotlin DSL instead of Groovy DSL.
 - Rewrites to expanded properties, to fit loader conventions and create less overhead.
-- Removal of access transformer file from Fabric's build and refmap line in common mixin for NeoForge.
+- Removal of access transformer file from Fabric's build and refmap line in common mixins.json for NeoForge.
 - Platform Helpers are done without services, instead being added to the common class within Fabric pre-launch and NeoForge init.
   - This must be done in pre-launch on Fabric due to random load order for mods. Otherwise the game may crash if a mod depends on the helper.
 - Cut down on a few classes.
