@@ -1,32 +1,24 @@
-# MultiLoader Template
+# Greenhouse Multiloader Template
+This is a version of the Multiloader Template that is tailored towards Greenhouse's mods.
 
-This project provides a Gradle project template that can compile Minecraft mods for multiple modloaders using a common project for the sources. This project does not require any third party libraries or dependencies. If you have any questions or want to discuss the project, please join our [Discord](https://discord.myceliummod.network).
+## Swapping Versions
+Versions and properties are not within gradle.properties. This is because Kotlin DSL does not play nicely with gradle.properties.
+Versions are contained within `buildSrc/src/main/kotlin/dev/greenhouseteam/examplemod/gradle/Versions.kt`.
+Properties are contained within `buildSrc/src/main/kotlin/dev/greenhouseteam/examplemod/gradle/Properties.kt`.
 
-## Getting Started
+It is ideal to change any mention of `examplemod` within the codebase when creating from this template.
 
-### IntelliJ IDEA
-This guide will show how to import the MultiLoader Template into IntelliJ IDEA. The setup process is roughly equivalent to setting up the modloaders independently and should be very familiar to anyone who has worked with their MDKs.
+## Changes from MLT
+The main changes from the Multiloader Template, which we have forked are:
+- Uses Kotlin DSL instead of Groovy DSL.
+- Rewrites to expanded properties, to fit loader conventions and create less overhead.
+- Removal of access transformer file from Fabric's build and refmap line in common mixin for NeoForge.
+- Platform Helpers are done without services, instead being added to the common class within Fabric pre-launch and NeoForge init.
+  - This must be done in pre-launch on Fabric due to random load order for mods. Otherwise the game may crash if a mod depends on the helper.
+- Cut down on a few classes.
+- Set up client mixins from the example in the `mixin.client` package, following convention for Greenhouse mixins.
+- Modmuss' mod publish plugin is set up for both loaders. For CurseForge, Modrinth and GitHub.
+  - Feel free to remove any of these, you may desire GitHub only if the mod is supposed to be an internal library
+  - You can run this with `publishMods`. Just make sure tokens are set up.
 
-1. Clone or download this repository to your computer.
-2. Configure the project by setting the properties in the `gradle.properties` file. You will also need to change the `rootProject.name`  property in `settings.gradle`, this should match the folder name of your project, or else IDEA may complain.
-3. Open the template's root folder as a new project in IDEA. This is the folder that contains this README.md file and the gradlew executable.
-4. If your default JVM/JDK is not Java 21 you will encounter an error when opening the project. This error is fixed by going to `File > Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JVM` and changing the value to a valid Java 21 JVM. You will also need to set the Project SDK to Java 21. This can be done by going to `File > Project Structure > Project SDK`. Once both have been set open the Gradle tab in IDEA and click the refresh button to reload the project.
-5. Open your Run/Debug Configurations. Under the `Application` category there should now be options to run Fabric and NeoForge projects. Select one of the client options and try to run it.
-6. Assuming you were able to run the game in step 6 your workspace should now be set up.
-
-### Eclipse
-While it is possible to use this template in Eclipse it is not recommended. During the development of this template multiple critical bugs and quirks related to Eclipse were found at nearly every level of the required build tools. While we continue to work with these tools to report and resolve issues support for projects like these are not there yet. For now Eclipse is considered unsupported by this project. The development cycle for build tools is notoriously slow so there are no ETAs available.
-
-## Development Guide
-When using this template the majority of your mod should be developed in the `common` project. The `common` project is compiled against the vanilla game and is used to hold code that is shared between the different loader-specific versions of your mod. The `common` project has no knowledge or access to ModLoader specific code, apis, or concepts. Code that requires something from a specific loader must be done through the project that is specific to that loader, such as the `fabric` or `neoforge` projects.
-
-Loader specific projects such as the `fabric` and `neoforge` project are used to load the `common` project into the game. These projects also define code that is specific to that loader. Loader specific projects can access all the code in the `common` project. It is important to remember that the `common` project can not access code from loader specific projects.
-
-## Removing Platforms and Loaders
-While this template has support for many modloaders, new loaders may appear in the future, and existing loaders may become less relevant.
-
-Removing loader specific projects is as easy as deleting the folder, and removing the `include("projectname")` line from the `settings.gradle` file.
-For example if you wanted to remove support for `forge` you would follow the following steps:
-
-1. Delete the subproject folder. For example, delete `MultiLoader-Template/forge`.
-2. Remove the project from `settings.gradle`. For example, remove `include("forge")`. 
+# Remember to change this README for any projects!
