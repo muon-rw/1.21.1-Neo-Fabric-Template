@@ -10,7 +10,7 @@ displayName="${mod_name}"
 logoFile="${mod_id}.png"
 logoBlur=false
 authors="${mod_author}"
-credits="${mod_contributors}"
+credits="${neoforge_mod_contributors}"
 description='''
 ${mod_description}
 '''
