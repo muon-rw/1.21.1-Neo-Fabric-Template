@@ -20,10 +20,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "dev.greenhouseteam.examplemod.ExampleModFabric"
+            "house.greenhouse.examplemod.ExampleModFabric"
         ],
         "preLaunch": [
-            "dev.greenhouseteam.examplemod.ExampleModFabricPre"
+            "house.greenhouse.examplemod.ExampleModFabricPre"
         ]
     },
     "mixins": [

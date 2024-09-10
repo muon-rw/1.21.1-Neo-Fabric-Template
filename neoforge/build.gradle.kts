@@ -1,5 +1,5 @@
-import dev.greenhouseteam.examplemod.gradle.Properties
-import dev.greenhouseteam.examplemod.gradle.Versions
+import house.greenhouse.examplemod.gradle.Properties
+import house.greenhouse.examplemod.gradle.Versions
 import org.apache.tools.ant.filters.LineContains
 import org.gradle.jvm.tasks.Jar
 
@@ -12,7 +12,7 @@ plugins {
 neoForge {
     version = Versions.NEOFORGE
     parchment {
-        minecraftVersion = Versions.INTERNAL_MINECRAFT
+        minecraftVersion = Versions.PARCHMENT_MINECRAFT
         mappingsVersion = Versions.PARCHMENT
     }
     addModdingDependenciesTo(sourceSets["test"])

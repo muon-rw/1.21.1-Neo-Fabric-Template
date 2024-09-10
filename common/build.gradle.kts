@@ -1,5 +1,5 @@
-import dev.greenhouseteam.examplemod.gradle.Properties
-import dev.greenhouseteam.examplemod.gradle.Versions
+import house.greenhouse.examplemod.gradle.Properties
+import house.greenhouse.examplemod.gradle.Versions
 import me.modmuss50.mpp.PublishModTask
 
 plugins {
@@ -19,7 +19,7 @@ sourceSets {
 neoForge {
     neoFormVersion = Versions.NEOFORM
     parchment {
-        minecraftVersion = Versions.INTERNAL_MINECRAFT
+        minecraftVersion = Versions.PARCHMENT_MINECRAFT
         mappingsVersion = Versions.PARCHMENT
     }
     addModdingDependenciesTo(sourceSets["test"])

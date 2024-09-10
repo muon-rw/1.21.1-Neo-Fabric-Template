@@ -1,5 +1,5 @@
-import dev.greenhouseteam.examplemod.gradle.Properties
-import dev.greenhouseteam.examplemod.gradle.Versions
+import house.greenhouse.examplemod.gradle.Properties
+import house.greenhouse.examplemod.gradle.Versions
 
 plugins {
     base
@@ -81,7 +81,7 @@ tasks {
             attributes["Implementation-Title"] = project.name
             attributes["Implementation-Version"] = archiveVersion
             attributes["Implementation-Vendor"] = Properties.MOD_AUTHOR
-            attributes["Built-On-Minecraft"] = Versions.INTERNAL_MINECRAFT
+            attributes["Built-On-Minecraft"] = Versions.MINECRAFT
         }
     }
 

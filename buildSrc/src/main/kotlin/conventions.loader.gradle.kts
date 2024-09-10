@@ -1,4 +1,4 @@
-import dev.greenhouseteam.examplemod.gradle.Properties
+import house.greenhouse.examplemod.gradle.Properties
 
 plugins {
     id("conventions.common")
