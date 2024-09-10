@@ -3,6 +3,7 @@ package dev.greenhouseteam.examplemod.gradle
 object Properties {
     const val GROUP = "dev.greenhouseteam"
     const val MOD_NAME = "Example Mod"
+    const val ARCHIVES_NAME = "example-mod"
     const val MOD_ID = "examplemod"
     const val MOD_AUTHOR = "Greenhouse Team"
     val MOD_CONTRIBUTORS = listOf("Insert", "People", "Here")
