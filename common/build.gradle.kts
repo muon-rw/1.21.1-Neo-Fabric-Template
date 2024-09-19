@@ -1,5 +1,5 @@
-import house.greenhouse.examplemod.gradle.Properties
-import house.greenhouse.examplemod.gradle.Versions
+import dev.muon.medieval.gradle.Properties
+import dev.muon.medieval.gradle.Versions
 import me.modmuss50.mpp.PublishModTask
 
 plugins {
@@ -30,10 +30,26 @@ neoForge {
     validateAccessTransformers = true
 }
 
+repositories {
+    maven {
+        name = "TerraformersMC"
+        url = uri("https://maven.terraformersmc.com/")
+    }
+    maven {
+        name = "Jared's maven"
+        url = uri("https://maven.blamejared.com/")
+    }
+    maven("https://maven.wispforest.io/releases")
+}
+
 dependencies {
     compileOnly("io.github.llamalad7:mixinextras-common:${Versions.MIXIN_EXTRAS}")
     annotationProcessor("io.github.llamalad7:mixinextras-common:${Versions.MIXIN_EXTRAS}")
     compileOnly("net.fabricmc:sponge-mixin:${Versions.FABRIC_MIXIN}")
+
+    compileOnly("io.wispforest:accessories-common:${Versions.ACCESSORIES}-mojmap")
+    compileOnly("mezz.jei:jei-${Versions.MINECRAFT}-common-api:${Versions.JEI}")
+    compileOnly("dev.emi:emi-xplat-mojmap:${Versions.EMI}:api")
 }
 
 configurations {

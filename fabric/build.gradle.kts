@@ -1,5 +1,5 @@
-import house.greenhouse.examplemod.gradle.Properties
-import house.greenhouse.examplemod.gradle.Versions
+import dev.muon.medieval.gradle.Properties
+import dev.muon.medieval.gradle.Versions
 import net.fabricmc.loom.task.RemapJarTask
 import org.gradle.jvm.tasks.Jar
 
@@ -10,10 +10,16 @@ plugins {
 }
 
 repositories {
-    maven {
-        name = "TerraformersMC"
-        url = uri("https://maven.terraformersmc.com/")
-    }
+    maven("https://maven.blamejared.com/")
+    maven("https://maven.wispforest.io/releases")
+    maven("https://maven.su5ed.dev/releases")
+    maven("https://maven.fabricmc.net")
+    maven("https://maven.shedaniel.me/")
+    maven("https://maven.terraformersmc.com/")
+    maven("https://maven.ladysnake.org/releases")
+    maven("https://maven.parchmentmc.org")
+    maven("https://cursemaven.com")
+    maven("https://api.modrinth.com/maven")
 }
 
 dependencies {
@@ -23,6 +29,12 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${Versions.FABRIC_LOADER}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${Versions.FABRIC_API}")
     modLocalRuntime("com.terraformersmc:modmenu:${Versions.MOD_MENU}")
+
+
+    modImplementation("curse.maven:ftb-chunks-fabric-472657:5710629")
+    modImplementation("curse.maven:ftb-library-fabric-438495:5714915")
+    modImplementation("curse.maven:ftb-teams-fabric-438497:5631447")
+    modLocalRuntime("curse.maven:architectury-api-419699:5553799")
 }
 
 loom {

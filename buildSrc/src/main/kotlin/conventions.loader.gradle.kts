@@ -1,4 +1,4 @@
-import house.greenhouse.examplemod.gradle.Properties
+import dev.muon.medieval.gradle.Properties
 
 plugins {
     id("conventions.common")

@@ -1,3 +1,2 @@
-# Changes
-- This is a sample changelog.
-- Delete the previous content within this file when working on a new version.
+# 1.0.0
+- Initial Release

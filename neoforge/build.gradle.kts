@@ -1,5 +1,5 @@
-import house.greenhouse.examplemod.gradle.Properties
-import house.greenhouse.examplemod.gradle.Versions
+import dev.muon.medieval.gradle.Properties
+import dev.muon.medieval.gradle.Versions
 import org.apache.tools.ant.filters.LineContains
 import org.gradle.jvm.tasks.Jar
 
@@ -57,6 +57,25 @@ tasks {
             filter<LineContains>("negate" to true, "contains" to setOf("refmap"))
         }
     }
+}
+
+repositories {
+    maven("https://maven.blamejared.com/")
+    maven("https://maven.terraformersmc.com/")
+    maven("https://maven.wispforest.io/releases")
+    maven("https://maven.su5ed.dev/releases")
+    maven("https://maven.fabricmc.net")
+    maven("https://maven.shedaniel.me/")
+    maven("https://maven.octo-studios.com/releases")
+    maven("https://cursemaven.com")
+    maven("https://api.modrinth.com/maven")
+}
+
+dependencies {
+    implementation("curse.maven:ftb-chunks-forge-314906:5710609")
+    implementation("curse.maven:ftb-library-forge-404465:5714916")
+    implementation("curse.maven:ftb-teams-forge-404468:5631446")
+    runtimeOnly("curse.maven:architectury-api-419699:5553800")
 }
 
 publishMods {

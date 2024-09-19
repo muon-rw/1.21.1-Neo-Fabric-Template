@@ -1,5 +1,5 @@
-import house.greenhouse.examplemod.gradle.Properties
-import house.greenhouse.examplemod.gradle.Versions
+import dev.muon.medieval.gradle.Properties
+import dev.muon.medieval.gradle.Versions
 
 plugins {
     base
